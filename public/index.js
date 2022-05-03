@@ -3,7 +3,13 @@ function main(){
     const incrementButton = document.querySelector('#increment-button');
     const decrementButton = document.querySelector('#decrement-button');
 
-    let countValue = 0;
+    async function getLocal() {
+        let response = await fetch('http://192.168.86.30:9000/counter');
+        let resultObject = await response.json();
+        console.log(resultObject);
+    }
+
+    let countValue = 10;
 
     function increment(){
         countValue++;
